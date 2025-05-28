@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { projects } from '../../data/works';
+import { ue5Works, houdiniWorks } from '@/data/works';
+
+// 合并作品数组
+const projects = [...ue5Works, ...houdiniWorks];
 
 export default function ProjectsOverview() {
   return (
