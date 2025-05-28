@@ -6,23 +6,7 @@ import { FaGithub, FaLinkedin, FaArtstation } from 'react-icons/fa';
 import { GiCubes } from 'react-icons/gi';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ue5Works, houdiniWorks } from '@/data/works';
-
-// 定义类型
-interface WorkDetail {
-  type: string;
-  url: string;
-  description: string;
-}
-
-interface Work  {
-  id: string;
-  title: string;
-  description: string;
-  coverImage: string;
-  details: WorkDetail[];
-  tags: string[];
-}
+import { ue5Works, houdiniWorks, Work, type WorkDetail } from '@/data/works';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ue5');
@@ -82,7 +66,7 @@ export default function Home() {
                     {/* 图片部分 */}
                     <div className="aspect-video relative rounded-lg overflow-hidden">
                       <Image
-                        src={work.coverImage}
+                        src={work.image}
                         alt={work.title}
                         width={800}
                         height={450}
@@ -117,7 +101,7 @@ export default function Home() {
                     {/* 图片部分 */}
                     <div className="aspect-video relative rounded-lg overflow-hidden">
                       <Image
-                        src={work.coverImage}
+                        src={work.image}
                         alt={work.title}
                         width={800}
                         height={450}
