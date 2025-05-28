@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaArtstation } from 'react-icons/fa';
 import { GiCubes } from 'react-icons/gi';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ue5Works, houdiniWorks, Work, type WorkDetail } from '@/data/works';
+import { ue5Works, houdiniWorks, sceneEditingWorks, projectWorks, Work, type WorkDetail } from '@/data/works';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ue5');
@@ -50,6 +50,26 @@ export default function Home() {
             <GiCubes className="text-xl mr-2" />
             Houdini作品
           </button>
+          <button
+            onClick={() => setActiveTab('scene-editing')}
+            className={`px-6 py-3 rounded-lg flex items-center gap-2 transition-all
+              ${activeTab === 'scene-editing'
+                ? 'bg-primary text-primary-light'
+                : 'bg-accent text-primary hover:bg-accent-dark'}`}
+          >
+            <GiCubes className="text-xl mr-2" />
+            场景编辑
+          </button>
+          <button
+            onClick={() => setActiveTab('projects')}
+            className={`px-6 py-3 rounded-lg flex items-center gap-2 transition-all
+              ${activeTab === 'projects'
+                ? 'bg-primary text-primary-light'
+                : 'bg-accent text-primary hover:bg-accent-dark'}`}
+          >
+            <GiCubes className="text-xl mr-2" />
+            项目集
+          </button>
         </div>
 
         {/* Content Section */}
@@ -89,7 +109,7 @@ export default function Home() {
                 </motion.div>
               </Link>
             ))
-          ) : (
+          ) : activeTab === 'houdini' ? (
             houdiniWorks.map((work: Work) => (
               <Link key={work.id} href={`/houdini/${work.id}`}>
                 <motion.div
@@ -124,7 +144,77 @@ export default function Home() {
                 </motion.div>
               </Link>
             ))
-          )}
+          ) : activeTab === 'scene-editing' ? (
+            sceneEditingWorks.map((work: Work) => (
+              <Link key={work.id} href={`/scene-editing/${work.id}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                >
+                  <div className="space-y-4">
+                    {/* 图片部分 */}
+                    <div className="aspect-video relative rounded-lg overflow-hidden">
+                      <Image
+                        src={work.coverImage}
+                        alt={work.title}
+                        width={800}
+                        height={450}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-3 text-primary">{work.title}</h3>
+                  <p className="text-primary-dark mb-4">{work.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {work.tags.map((tag: string, index: number) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-accent-light rounded-full text-sm text-primary-dark"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </Link>
+            ))
+          ) : activeTab === 'projects' ? (
+            projectWorks.map((work: Work) => (
+              <Link key={work.id} href={`/projects/${work.id}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                >
+                  <div className="space-y-4">
+                    {/* 图片部分 */}
+                    <div className="aspect-video relative rounded-lg overflow-hidden">
+                      <Image
+                        src={work.coverImage}
+                        alt={work.title}
+                        width={800}
+                        height={450}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-3 text-primary">{work.title}</h3>
+                  <p className="text-primary-dark mb-4">{work.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {work.tags.map((tag: string, index: number) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-accent-light rounded-full text-sm text-primary-dark"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </Link>
+            ))
+          ) : null}
         </div>
       </header>
     </main>

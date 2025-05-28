@@ -2,11 +2,11 @@
 
 import { useParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
-import { ue5Works, houdiniWorks, Work, type WorkDetail } from '@/data/works';
+import { ue5Works, houdiniWorks, sceneEditingWorks, projectWorks, Work, type WorkDetail } from '@/data/works';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const allWorks = [...ue5Works, ...houdiniWorks];
+const allWorks = [...ue5Works, ...houdiniWorks, ...sceneEditingWorks, ...projectWorks];
 
 export default function PCGDetail({ params }: { params: { id: string } }) {
   const work = allWorks.find((w: Work) => w.id === params.id);

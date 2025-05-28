@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ue5Works, houdiniWorks, Work } from '@/data/works';
+import { ue5Works, houdiniWorks, sceneEditingWorks, projectWorks, Work } from '@/data/works';
 
 // 合并作品数组并过滤出 PCG 相关的作品
-const pcgWorks = [...ue5Works, ...houdiniWorks].filter(work => 
+const pcgWorks = [...ue5Works, ...houdiniWorks, ...sceneEditingWorks, ...projectWorks].filter(work => 
   work.category === 'PCG' || work.tags.includes('PCG')
 );
 

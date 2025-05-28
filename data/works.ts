@@ -248,4 +248,55 @@ export const houdiniWorks = [
       }
     ]
   }
+];
+
+export const sceneEditingWorks: Work[] = [
+  {
+    id: 'realistic-scene-editing',
+    title: '个人-写实场景地编',
+    coverImage: '/images/level_art/个人-写实场景地编.png',
+    category: '场景编辑',
+    tags: [],
+    description: '',
+    details: [
+      {
+        type: 'video',
+        url: '/videos/level_art/个人-写实场景地编.mp4',
+        description: ''
+      }
+    ]
+  },
+  {
+    id: 'realistic-autumn-scene-editing',
+    title: '个人-写实秋景地编',
+    coverImage: '/images/level_art/个人-写实秋景地编.png',
+    category: '场景编辑',
+    tags: [],
+    description: '',
+    details: [
+      {
+        type: 'video',
+        url: '/videos/level_art/个人-写实秋景地编.mp4',
+        description: ''
+      }
+    ]
+  }
+];
+
+export const projectWorks: Work[] = [
+  {
+    id: 'participated-project',
+    title: '参与项目',
+    coverImage: '/images/projects/参与项目.png',
+    category: '项目集',
+    tags: [],
+    description: '',
+    details: [
+      {
+        type: 'video',
+        url: '/videos/projects/参与项目.mp4',
+        description: ''
+      }
+    ]
+  }
 ]; 

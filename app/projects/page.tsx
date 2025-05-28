@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ue5Works, houdiniWorks } from '@/data/works';
+import { projectWorks, Work } from '@/data/works';
 
-// 合并作品数组
-const projects = [...ue5Works, ...houdiniWorks];
+// 使用项目集作品数组
+const projects = projectWorks;
 
 export default function ProjectsOverview() {
   return (
     <main className="container mx-auto py-12">
-      <h1 className="text-4xl font-bold mb-8 text-primary">项目经历总览</h1>
+      <h1 className="text-4xl font-bold mb-8 text-primary">项目集作品总览</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project) => (
+        {projects.map((project: Work) => (
           <Link key={project.id} href={`/projects/${project.id}`} className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
             <Image src={project.coverImage} alt={project.title} width={800} height={450} className="object-cover w-full h-56" />
             <div className="p-6">
