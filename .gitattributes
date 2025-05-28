@@ -1,3 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+<<<<<<< HEAD
 *.mp4 filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> 123766bedf90cf219f969665f3f0cccd8c3bc6a1
