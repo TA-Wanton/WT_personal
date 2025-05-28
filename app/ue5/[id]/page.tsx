@@ -35,10 +35,12 @@ export default function WorkDetail() {
                   <div className="w-2/3">
                     {detail.type === 'video' ? (
                       <video 
-                        src={detail.url} 
                         controls 
                         className="w-full rounded-lg shadow-md"
-                      />
+                      >
+                        <source src={detail.url} type="video/mp4" />
+                        您的浏览器不支持视频标签。
+                      </video>
                     ) : (
                       <Image
                         src={detail.url}
