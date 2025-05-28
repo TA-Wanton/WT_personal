@@ -12,7 +12,7 @@ export default function ProjectsOverview() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <Link key={project.id} href={`/projects/${project.id}`} className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
-            <Image src={project.image} alt={project.title} width={800} height={450} className="object-cover w-full h-56" />
+            <Image src={project.coverImage} alt={project.title} width={800} height={450} className="object-cover w-full h-56" />
             <div className="p-6">
               <h2 className="text-2xl font-semibold mb-2 text-primary">{project.title}</h2>
               <p className="text-primary-dark mb-2 line-clamp-2">{project.description}</p>

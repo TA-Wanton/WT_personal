@@ -66,7 +66,7 @@ export default function Home() {
                     {/* 图片部分 */}
                     <div className="aspect-video relative rounded-lg overflow-hidden">
                       <Image
-                        src={work.image}
+                        src={work.coverImage}
                         alt={work.title}
                         width={800}
                         height={450}
@@ -101,7 +101,7 @@ export default function Home() {
                     {/* 图片部分 */}
                     <div className="aspect-video relative rounded-lg overflow-hidden">
                       <Image
-                        src={work.image}
+                        src={work.coverImage}
                         alt={work.title}
                         width={800}
                         height={450}
