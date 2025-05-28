@@ -1,10 +1,10 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').join(__dirname, '.'),
-    };
+  webpack: (config, { isDev, isServer }) => {
+    config.resolve.alias['@'] = path.resolve(__dirname);
+
     return config;
   },
 };

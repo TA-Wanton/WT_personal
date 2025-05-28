@@ -1,4 +1,4 @@
-import { pcgWorks } from '../../data/works';
+import { pcgWorks } from '@/data/works';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
